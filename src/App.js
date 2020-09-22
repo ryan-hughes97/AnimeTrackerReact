@@ -1,24 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import Form from './components/Form';
+import TitleList from './components/TitleList';
 import './App.css';
 
 function App() {
+  const [inputText, setInputText] = useState('');
+  const [titles, setTitles] = useState([]);
+  const [titleType, setTitleType] = useState([]);
+  const [check, setCheck] = useState('');
+  // const [completeBtn, setCompleteBtn] = useState('');
+
+  useEffect(() => {
+    getLocalTitles();
+  }, []);
+
+  useEffect(() => {
+    saveLocalTitles();
+  }, [titles]);
+
+  const saveLocalTitles = () => {
+    localStorage.setItem('titles', JSON.stringify(titles));
+  };
+
+  const getLocalTitles = () => {
+    if (localStorage.getItem('titles') === null) {
+      localStorage.setItem('titles', JSON.stringify([]));
+    } else {
+      let titleLocal = JSON.parse(localStorage.getItem('titles'));
+      setTitles(titleLocal);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='main-div'>
+        <Form
+          inputText={inputText}
+          setInputText={setInputText}
+          titles={titles}
+          setTitles={setTitles}
+          titleType={titleType}
+          setTitleType={setTitleType}
+        />
+        <TitleList
+          titles={titles}
+          setTitles={setTitles}
+          check={check}
+          setCheck={setCheck}
+        />
+      </div>
     </div>
   );
 }
