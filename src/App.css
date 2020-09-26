@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  background: #3a3a3a;
+  color: #fff;
+}
+
+.main-div {
+  display: flex;
+}
+
+form {
+  position: sticky !important;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  min-width: 300px;
+  background: #333;
+  height: 100vh;
+  z-index: 2;
+}
+
+form h1 {
+  padding-top: 2rem;
+  margin-left: 1.5rem;
+}
+
+form small {
+  margin-left: 1.6rem;
+}
+
+label {
+  display: block;
+  margin: 0.5rem 0 0.5rem 1.5rem;
+}
+
+.label-title {
+  margin-top: 2rem;
+}
+
+input {
+  background: #212121;
+  color: #aaa9a9;
+  border: 0;
+  width: 250px;
+  margin: 0 0 0 1.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus,
+button:focus {
+  outline: 0;
+}
+
+select {
+  cursor: pointer;
+  background: #212121;
+  color: #aaa9a9;
+  border: 0;
+  width: 250px;
+  margin: 0 0 0 1.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+button[type='submit'] {
+  cursor: pointer;
+  margin: 1.5rem 0 0 1.5rem;
+  width: 250px;
+  background: #212121;
+  color: #aaa9a9;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+button[type='submit']:hover {
+  background: #5a5a5a;
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 1rem 5rem 0 0;
+}
+
+.title {
+  border-bottom: 1px dotted #aaa9a9;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  /* display: flex;
+  justify-content: space-between;
+  width: 65vw;
+  padding: 0.5rem 3rem 0.5rem 0; */
+}
+
+.complete-btn,
+.trash-btn {
+  cursor: pointer;
+  color: #aaa9a9;
+  background: #212121;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 0;
+  margin: 0.5rem;
+}
+
+.trash-btn:hover {
+  background: rgb(223, 61, 61);
+  color: #fff;
+}
+
+.complete {
+  color: green;
+}
+
+table {
+  max-width: 100%;
+  margin-top: 1rem;
+}
+
+.table-heading {
+  border-bottom: 1px dotted #aaa9a9;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin-left: 2rem;
+}
+
+table tr {
+  display: flex;
+  align-items: center;
+  width: 700px;
+}
+
+table .title .buttons {
+  display: flex;
+  align-items: center;
+}
+
+table .title {
+  margin-left: 2rem;
+}
+
+.check-complete {
+  color: green;
+}
+
+.completed {
+  background: rgb(44, 148, 44);
+  color: #fff;
+}
+
+.table-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-bottom: .5rem;
+  color: #aaa9a9;
+}
+
+.type {
+  margin-left: -1.2rem;
+}
+
+.status {
+  padding: 0 .5rem;
+}
