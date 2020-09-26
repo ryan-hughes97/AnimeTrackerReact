@@ -8,7 +8,6 @@ function App() {
   const [titles, setTitles] = useState([]);
   const [titleType, setTitleType] = useState([]);
   const [check, setCheck] = useState('');
-  // const [completeBtn, setCompleteBtn] = useState('');
 
   useEffect(() => {
     getLocalTitles();
