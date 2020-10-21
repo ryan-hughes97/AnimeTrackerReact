@@ -33,13 +33,21 @@ form small {
   margin-left: 1.6rem;
 }
 
+.error-message {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+  color: rgb(252, 60, 60);
+  font-size: 1.4rem;
+  opacity: 0;
+}
+
 label {
   display: block;
   margin: 0.5rem 0 0.5rem 1.5rem;
 }
 
 .label-title {
-  margin-top: 2rem;
+  margin-top: .5rem;
 }
 
 input {
@@ -85,10 +93,35 @@ button[type='submit']:hover {
   background: #5a5a5a;
 }
 
+.title-counter {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  display: flex;
+  align-items: flex-end;
+  /* justify-content: center; */
+}
+
+.title-counter p {
+  margin-bottom: .75rem;
+  margin-left: .5rem;
+  font-size: 2rem;
+  color: #a9a9a9;
+}
+
+.counter {
+  font-size: 5rem;
+  color: #a9a9a9;
+}
+
 li {
   display: inline-block;
   list-style-type: none;
   margin: 1rem 5rem 0 0;
+}
+
+.title-container {
+  width: 500px;
 }
 
 .title {
@@ -96,7 +129,8 @@ li {
   display: flex;
   align-content: center;
   justify-content: space-between;
-  max-width: 1000px;
+  width: 1550px;
+  /* max-width: 1000px; */
   /* display: flex;
   justify-content: space-between;
   width: 65vw;
@@ -125,7 +159,6 @@ li {
 }
 
 table {
-  max-width: 100%;
   margin-top: 1rem;
 }
 
@@ -134,14 +167,21 @@ table {
   display: flex;
   align-content: center;
   justify-content: space-between;
-  max-width: 1000px;
   margin-left: 2rem;
 }
 
 table tr {
   display: flex;
   align-items: center;
-  width: 700px;
+  width: 100%;
+}
+
+table .title:hover {
+  background: #333;
+}
+
+table .title:first-child:hover {
+  background: #3a3a3a;
 }
 
 table .title .buttons {
@@ -176,3 +216,7 @@ table .title {
 .status {
   padding: 0 .5rem;
 }
+
+.anime { color: rgb(122, 209, 243); }
+.manga { color: rgb(138, 216, 138); }
+.anime-manga { color: rgb(255, 198, 93); }

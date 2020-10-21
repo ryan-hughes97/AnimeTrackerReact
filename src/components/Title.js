@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Title = ({ text, type, title, titles, setTitles }) => {
+const Title = ({ text, type, title, titles, setTitles, titleCount, setTitleCount }) => {
   const deleteHandler = () => {
     setTitles(titles.filter((el) => el.id !== title.id));
   };
@@ -23,7 +23,7 @@ const Title = ({ text, type, title, titles, setTitles }) => {
   return (
     <div className='title'>
       <tr>{text}</tr>
-      <tr>{type}</tr>
+      <tr className ={type === 'Anime' ? 'anime' : type === 'Manga' ? 'manga' : type === 'Anime & Manga' ? 'anime-manga' : null}>{type}</tr>
       <div className='buttons'>
         <button
           onClick={completeHandler}

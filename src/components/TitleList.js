@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from './Title';
 
-const TitleList = ({ titles, setTitles, check, setCheck }) => {
+const TitleList = ({ titles, setTitles, check, setCheck, titleCount, setTitleCount }) => {
   return (
     <div className='title-container'>
       <table className='title-list'>
@@ -20,6 +20,8 @@ const TitleList = ({ titles, setTitles, check, setCheck }) => {
             setTitles={setTitles}
             check={check}
             setCheck={setCheck}
+            titleCount={titleCount}
+            setTitleCount={setTitleCount}
           />
         ))}
       </table>

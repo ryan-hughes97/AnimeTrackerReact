@@ -9,6 +9,7 @@ const Form = ({
   setTitleType,
 }) => {
   const type = document.getElementById('type');
+  const error = document.getElementById('error-message');
 
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
@@ -18,32 +19,30 @@ const Form = ({
     setTitleType(e.target.value);
   };
 
-  // const resetType = () => {
-  //   setTitleType('Choose One');
-  // };
-
   const submitTitleHandler = (e) => {
     e.preventDefault();
-    console.log(titleType);
-
-    setTitles([
-      ...titles,
-      {
-        text: inputText,
-        type: type.value,
-        completed: false,
-        id: Math.random() * 1000,
-      },
-    ]);
+    if(inputText === '') {
+      error.style.opacity = '1';
+    } else {
+      setTitles([
+        ...titles,
+        {
+          text: inputText,
+          type: type.value,
+          completed: false,
+          id: Math.random() * 1000,
+        },
+      ]);
+      error.style.opacity = '0'; 
+    }
     setInputText('');
-    // resetType();
-    // window.location.reload(false);
   };
 
   return (
     <form>
       <h1 className='anime-tracker-title'>Re: Track</h1>
       <small>Anime & Manga</small>
+      <p id="error-message" className="error-message">Please add a title</p>
       <div>
         <label htmlFor='title' className='label-title'>
           Title
@@ -60,32 +59,23 @@ const Form = ({
         <select
           name='type'
           id='type'
-          // defaultValue='Anime'
           value={titleType}
           onChange={titleTypeHandler}
-          // type={titleType}
         >
           <option value='Anime'>Anime</option>
           <option value='Manga'>Manga</option>
           <option value='Anime & Manga'>Anime and Manga</option>
         </select>
       </div>
-      {/* <div>
-        <label htmlFor='status'>Status</label>
-        <select name='status' id='status'>
-          <option value='select' selected disabled>
-            --Select One--
-          </option>
-          <option value='completed'>Completed</option>
-          <option value='ongoing'>Ongoing</option>
-          <option value='dropped'>Dropped</option>
-          <option value='interested'>Interested</option>
-        </select>
-      </div> */}
       <div>
         <button onClick={submitTitleHandler} type='submit' className='add-btn'>
           Add to List
         </button>
+      </div>
+
+      <div className="title-counter">
+        <div id="counter" className="counter">0</div>
+        <p>titles</p>
       </div>
     </form>
   );

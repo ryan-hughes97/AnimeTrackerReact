@@ -8,7 +8,7 @@ function App() {
   const [titles, setTitles] = useState([]);
   const [titleType, setTitleType] = useState([]);
   const [check, setCheck] = useState('');
-  // const [completeBtn, setCompleteBtn] = useState('');
+  const [titleCount, setTitleCount] = useState('');
 
   useEffect(() => {
     getLocalTitles();
@@ -17,6 +17,15 @@ function App() {
   useEffect(() => {
     saveLocalTitles();
   }, [titles]);
+
+  useEffect(() => {
+    countAnime();
+  }, [titles]);
+
+  const countAnime = () => {
+    let titleCount = document.querySelector('.counter');
+    titleCount.innerText = (document.querySelectorAll('.title').length - 1);
+  }
 
   const saveLocalTitles = () => {
     localStorage.setItem('titles', JSON.stringify(titles));
@@ -42,12 +51,13 @@ function App() {
           titleType={titleType}
           setTitleType={setTitleType}
         />
-        
         <TitleList
           titles={titles}
           setTitles={setTitles}
           check={check}
           setCheck={setCheck}
+          titleCount={titleCount}
+          setTitleCount={setTitleCount}
         />
       </div>
     </div>
