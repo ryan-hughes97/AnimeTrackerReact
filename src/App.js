@@ -8,7 +8,6 @@ function App() {
   const [titles, setTitles] = useState([]);
   const [titleType, setTitleType] = useState([]);
   const [check, setCheck] = useState('');
-  const [titleCount, setTitleCount] = useState('');
 
   useEffect(() => {
     getLocalTitles();
@@ -56,8 +55,6 @@ function App() {
           setTitles={setTitles}
           check={check}
           setCheck={setCheck}
-          titleCount={titleCount}
-          setTitleCount={setTitleCount}
         />
       </div>
     </div>
