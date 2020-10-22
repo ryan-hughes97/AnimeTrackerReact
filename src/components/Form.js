@@ -18,10 +18,6 @@ const Form = ({
     setTitleType(e.target.value);
   };
 
-  // const resetType = () => {
-  //   setTitleType('Choose One');
-  // };
-
   const submitTitleHandler = (e) => {
     e.preventDefault();
     console.log(titleType);
