@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Title = ({ text, type, title, titles, setTitles, titleCount, setTitleCount }) => {
+const Title = ({ text, type, title, titles, setTitles }) => {
   const deleteHandler = () => {
     setTitles(titles.filter((el) => el.id !== title.id));
   };
