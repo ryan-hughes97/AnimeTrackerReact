@@ -22,7 +22,7 @@ const Title = ({ text, type, title, titles, setTitles }) => {
 
   return (
     <div className='title'>
-      <tr>{text}</tr>
+      <tr className="input-title">{text}</tr>
       <tr className ={type === 'Anime' ? 'anime' : type === 'Manga' ? 'manga' : type === 'Anime & Manga' ? 'anime-manga' : null}>{type}</tr>
       <div className='buttons'>
         <button

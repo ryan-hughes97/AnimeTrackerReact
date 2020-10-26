@@ -21,6 +21,14 @@ function App() {
     countAnime();
   }, [titles]);
 
+  window.addEventListener("resize", function(event) {
+    console.log("hi");
+    if(document.body.clientWidth >= "600") {
+      const inputForm = document.getElementById('input-submit-form');
+      inputForm.style.display = 'block';
+    }
+  })
+
   const countAnime = () => {
     let titleCount = document.querySelector('.counter');
     titleCount.innerText = (document.querySelectorAll('.title').length - 1);

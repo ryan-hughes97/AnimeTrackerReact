@@ -33,6 +33,10 @@ form small {
   margin-left: 1.6rem;
 }
 
+.display-button {
+  display: none;
+}
+
 .error-message {
   margin-left: 1.5rem;
   margin-top: 1rem;
@@ -99,7 +103,6 @@ button[type='submit']:hover {
   left: 20px;
   display: flex;
   align-items: flex-end;
-  /* justify-content: center; */
 }
 
 .title-counter p {
@@ -121,7 +124,10 @@ li {
 }
 
 .title-container {
-  width: 500px;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {
@@ -130,11 +136,10 @@ li {
   align-content: center;
   justify-content: space-between;
   width: 1550px;
-  /* max-width: 1000px; */
-  /* display: flex;
-  justify-content: space-between;
-  width: 65vw;
-  padding: 0.5rem 3rem 0.5rem 0; */
+}
+
+.title .input-title {
+  margin-left: .5rem;
 }
 
 .complete-btn,
@@ -160,6 +165,8 @@ li {
 
 table {
   margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .table-heading {
@@ -167,7 +174,6 @@ table {
   display: flex;
   align-content: center;
   justify-content: space-between;
-  margin-left: 2rem;
 }
 
 table tr {
@@ -189,10 +195,6 @@ table .title .buttons {
   align-items: center;
 }
 
-table .title {
-  margin-left: 2rem;
-}
-
 .check-complete {
   color: green;
 }
@@ -209,8 +211,16 @@ table .title {
   color: #aaa9a9;
 }
 
+.title-heading {
+  margin-left: .5rem;
+}
+
+.input-title {
+  margin-right: .5rem;
+}
+
 .type {
-  margin-left: -1.2rem;
+  margin-left: -.5rem;
 }
 
 .status {
@@ -220,3 +230,356 @@ table .title {
 .anime { color: rgb(122, 209, 243); }
 .manga { color: rgb(138, 216, 138); }
 .anime-manga { color: rgb(255, 198, 93); }
+
+@media(max-width: 499px) {
+  .input-submit-form {
+    display: none;
+    transition: all .3s ease-in;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    animation: dropDown .5s ease-in-out forwards;
+    background: #333;
+    z-index: -2;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom: 2px #a9a9a9 solid;
+  }
+
+  @keyframes dropDown {
+    0% {
+      transform: translateY(-300px);
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(58px);
+      opacity: 1;
+    }
+  }
+
+  .display-button {
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 0;
+    background: #5f5f5f;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+
+  body {
+    font-size: .8rem;
+  }
+  .main-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-submit-form {
+    display: none;
+  }
+
+  .display-button {
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 0;
+    background: #5f5f5f;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+
+  form {
+    height: 70px;
+  }
+
+  form h1 {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    padding-top: 0;
+  }
+  
+  form small {
+    margin-left: 0.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  small {
+    margin-bottom: 2rem;
+  }
+
+  .error-message {
+    margin: 0 0 0 1.5rem;
+  }
+  
+  .label-title {
+    margin-top: 0rem;
+  }
+
+  button[type="submit"] {
+    width: 87%;
+  }
+
+  input, select {
+    width: 87%;
+    margin-right: 1.5rem;
+  }
+
+  button[type="submit"] {
+    margin-bottom: 1rem;
+  }
+
+  .title-counter {
+    display: none;
+  }
+
+  .title {
+    width: 320px;
+  }
+
+  .trash-btn:active {
+    background: rgb(223, 61, 61);
+  }
+}
+
+@media(min-width: 500px) and (max-width: 600px) {
+  .input-submit-form {
+    display: none;
+    transition: all .3s ease-in;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    animation: dropDown .5s ease-in-out forwards;
+    background: #333;
+    z-index: -2;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom: 2px #a9a9a9 solid;
+  }
+
+  @keyframes dropDown {
+    0% {
+      transform: translateY(-300px);
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(70px);
+      opacity: 1;
+    }
+  }
+
+  .display-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 0;
+    background: #5f5f5f;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+
+  .display-button:hover {
+    cursor: pointer;
+  }
+
+  .title {
+    width: 400px;
+  }
+
+  .main-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form {
+    height: 90px;
+  }
+
+  form h1 {
+    margin-top: 0.5rem;
+    padding-top: 0;
+  }
+  
+  form small {
+    margin-left: 1.5rem;
+    margin-bottom: .3rem;
+  }
+
+  .error-message {
+    margin: 0;
+  }
+  
+  .label-title {
+    margin-top: 0rem;
+  }
+
+  button[type="submit"] {
+    width: 90%;
+  }
+
+  label {
+    margin: 0 0 0 1.5rem;
+    padding: 0.5rem 0;
+  }
+
+  input, select {
+    width: 90%;
+    margin-right: 1.5rem;
+  }
+
+  button[type="submit"] {
+    margin-bottom: 1rem;
+  }
+
+  .title-counter {
+    display: none;
+  }
+}
+
+@media(min-width: 601px) and (max-width: 700px) {
+  .main-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form {
+    height: auto;
+  }
+
+  form h1 {
+    margin-top: 0.5rem;
+    padding-top: 0;
+  }
+  
+  form small {
+    margin-left: .5rem;
+    margin-bottom: .3rem;
+  }
+
+  .anime-tracker-div {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .error-message {
+    margin: 0;
+  }
+  
+  .label-title {
+    margin-top: 0rem;
+  }
+
+  button[type="submit"] {
+    width: 90%;
+  }
+
+  label {
+    margin: 0 0 0 1.5rem;
+    padding: 0.5rem 0;
+  }
+
+  input, select {
+    width: 90%;
+    margin-right: 1.5rem;
+  }
+
+  button[type="submit"] {
+    margin-bottom: 1rem;
+  }
+
+  .title-counter {
+    display: none;
+  }
+
+  .label-div-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .title {
+    width: 500px;
+  }
+}
+
+@media(min-width: 701px) and (max-width: 800px) {
+  .title {
+    max-width: 400px;
+  }
+
+  form {
+    min-width: 230px;
+  }
+
+  input, select, label, button[type="submit"] {
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+}
+
+@media(min-width: 801px) and (max-width: 1000px) {
+  .title {
+    width: 500px;
+  }
+}
+
+@media(min-width: 1001px) and (max-width: 1200px) {
+  .title {
+    width: 700px;
+  }
+}
+
+@media(min-width: 1201px) and (max-width: 1400px) {
+  .title {
+    width: 900px;
+  }
+}
+
+@media(min-width: 1401px) and (max-width: 1600px) {
+  .title {
+    width: 1100px;
+  }
+}
+
+@media(min-width: 1601px) and (max-width: 1800px) {
+  .title {
+    width: 1300px;
+  }
+}
+
+@media(min-width: 1801px){
+  .title {
+    width: 1500px;
+  }
+}
+
+/* landscape view */
+@media(max-height: 465px) {
+  .title-counter {
+    display: none;
+  }
+}

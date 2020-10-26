@@ -6,7 +6,7 @@ const TitleList = ({ titles, setTitles, check, setCheck }) => {
     <div className='title-container'>
       <table className='title-list'>
         <div className="title table-heading">
-          <tr>Title</tr>
+          <tr className='title-heading'>Title</tr>
           <tr className='type'>Type</tr>
           <p className='status'>Status</p>
         </div>
