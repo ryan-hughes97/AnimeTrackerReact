@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -27,6 +29,7 @@ form {
 form h1 {
   padding-top: 2rem;
   margin-left: 1.5rem;
+  font-family: 'Orbitron', sans-serif;
 }
 
 form small {
@@ -130,12 +133,40 @@ li {
   margin-right: auto;
 }
 
-.title {
+/* .title {
   border-bottom: 1px dotted #aaa9a9;
   display: flex;
   align-content: center;
   justify-content: space-between;
   width: 1550px;
+} */
+
+/* .title-list {
+  width: 800px;
+} */
+
+table {
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1500px;
+}
+
+td {
+  border: none;
+}
+
+td.input-title {
+  max-width: 200px;
+}
+
+td:last-child {
+  text-align: right;
+}
+
+td.buttons {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .title .input-title {
@@ -163,26 +194,20 @@ li {
   color: green;
 }
 
-table {
-  margin-top: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.table-heading {
+/* .table-heading {
   border-bottom: 1px dotted #aaa9a9;
   display: flex;
   align-content: center;
   justify-content: space-between;
-}
+} */
 
-table tr {
+/* table tr {
   display: flex;
   align-items: center;
   width: 100%;
-}
+} */
 
-table .title:hover {
+ul li .title:hover {
   background: #333;
 }
 
@@ -231,7 +256,50 @@ table .title .buttons {
 .manga { color: rgb(138, 216, 138); }
 .anime-manga { color: rgb(255, 198, 93); }
 
-@media(max-width: 499px) {
+ul {
+  width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+li {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px dotted #aaa9a9;
+  align-items: center;
+}
+
+li.title {
+  margin: 0;
+}
+
+li.title:first-child {
+  margin-top: 2rem;
+}
+
+li.title:hover {
+  background:#333;
+}
+
+li.title:first-child:hover {
+  background:#3a3a3a;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.anime-manga, .anime, .manga, .type {
+  text-align: center;
+}
+
+.status {
+  text-align: right;
+}
+
+/* @media(max-width: 499px) {
   .input-submit-form {
     display: none;
     transition: all .3s ease-in;
@@ -578,8 +646,8 @@ table .title .buttons {
 }
 
 /* landscape view */
-@media(max-height: 465px) {
+/* @media(max-height: 465px) {
   .title-counter {
     display: none;
   }
-}
+} */ 

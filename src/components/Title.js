@@ -21,9 +21,9 @@ const Title = ({ text, type, title, titles, setTitles }) => {
   };
 
   return (
-    <div className='title'>
-      <tr className="input-title">{text}</tr>
-      <tr className ={type === 'Anime' ? 'anime' : type === 'Manga' ? 'manga' : type === 'Anime & Manga' ? 'anime-manga' : null}>{type}</tr>
+    <li className='title'>
+      <div className="input-title">{text}</div>
+      <div className ={type === 'Anime' ? 'anime' : type === 'Manga' ? 'manga' : type === 'Anime & Manga' ? 'anime-manga' : null}>{type}</div>
       <div className='buttons'>
         <button
           onClick={completeHandler}
@@ -35,7 +35,7 @@ const Title = ({ text, type, title, titles, setTitles }) => {
           <i className='fas fa-trash'></i>
         </button>
       </div>
-    </div>
+    </li>
   );
 };
 

@@ -14,6 +14,9 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const saveLocalTitles = () => {
+      localStorage.setItem('titles', JSON.stringify(titles));
+    };
     saveLocalTitles();
   }, [titles]);
 
@@ -21,22 +24,19 @@ function App() {
     countAnime();
   }, [titles]);
 
-  window.addEventListener("resize", function(event) {
-    console.log("hi");
-    if(document.body.clientWidth >= "600") {
-      const inputForm = document.getElementById('input-submit-form');
-      inputForm.style.display = 'block';
-    }
-  })
+  // window.addEventListener("resize", function(event) {
+  //   if(document.body.clientWidth >= "600") {
+  //     const inputForm = document.getElementById('input-submit-form');
+  //     inputForm.style.display = 'block';
+  //   }
+  // })
 
   const countAnime = () => {
     let titleCount = document.querySelector('.counter');
     titleCount.innerText = (document.querySelectorAll('.title').length - 1);
   }
 
-  const saveLocalTitles = () => {
-    localStorage.setItem('titles', JSON.stringify(titles));
-  };
+  
 
   const getLocalTitles = () => {
     if (localStorage.getItem('titles') === null) {

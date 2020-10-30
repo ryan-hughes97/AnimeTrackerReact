@@ -10,26 +10,25 @@ const Form = ({
 }) => {
   const type = document.getElementById('type');
   const error = document.getElementById('error-message');
-  const displayBtn = document.getElementById('display-button');
+  // const displayBtn = document.getElementById('display-button');
   
 
-  const displayForm = (e) => {
-    e.preventDefault();
-    const inputForm = document.getElementById('input-submit-form');
+  // const displayForm = (e) => {
+  //   e.preventDefault();
+  //   const inputForm = document.getElementById('input-submit-form');
 
-    if(inputForm.classList.contains('show')) {
-      console.log('hi');
-      inputForm.style.display = 'block';
-      inputForm.classList.remove('show');
-      inputForm.classList.add('hide');
-      displayBtn.innerHTML = '<i class="fas fa-chevron-up"></i>'; 
-    } else if (inputForm.classList.contains('hide')) {
-      inputForm.style.display = 'none';
-      inputForm.classList.remove('hide');
-      inputForm.classList.add('show');
-      displayBtn.innerHTML = '<i class="fas fa-chevron-down"></i>'; 
-    }
-  }
+  //   if(inputForm.classList.contains('show')) {
+  //     inputForm.style.display = 'block';
+  //     inputForm.classList.remove('show');
+  //     inputForm.classList.add('hide');
+  //     displayBtn.innerHTML = '<i class="fas fa-chevron-up"></i>'; 
+  //   } else if (inputForm.classList.contains('hide')) {
+  //     inputForm.style.display = 'none';
+  //     inputForm.classList.remove('hide');
+  //     inputForm.classList.add('show');
+  //     displayBtn.innerHTML = '<i class="fas fa-chevron-down"></i>'; 
+  //   }
+  // }
 
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
@@ -64,7 +63,9 @@ const Form = ({
         <h1 className='anime-tracker-title'>Re: Track</h1>
         <small>Anime & Manga</small>
       </div>
-      <button id="display-button" className="display-button" onClick={displayForm}><i class="fas fa-chevron-down"></i></button>
+      {/* <div>
+        <button id="display-button" className="display-button" ><i className="fas fa-chevron-down"></i></button>
+      </div> */}
       <div id="input-submit-form" className="input-submit-form show">
         <p id="error-message" className="error-message">Please add a title</p>
         
@@ -84,7 +85,6 @@ const Form = ({
             <select
               name='type'
               id='type'
-              value={titleType}
               onChange={titleTypeHandler}
             >
               <option value='Anime'>Anime</option>
