@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,7 +17,8 @@ body {
   display: flex;
 }
 
-form {
+/* Main Form */
+form.main-form {
   position: sticky !important;
   display: inline-block;
   top: 0;
@@ -26,38 +29,57 @@ form {
   z-index: 2;
 }
 
-form h1 {
+form.main-form h1 {
   padding-top: 2rem;
   margin-left: 1.5rem;
   font-family: 'Orbitron', sans-serif;
 }
 
-form small {
+form.main-form small {
+  display: inline-block;
   margin-left: 1.6rem;
+  margin-bottom: 2rem;
 }
 
 .display-button {
   display: none;
 }
 
-.error-message {
+p.error-message {
   margin-left: 1.5rem;
-  margin-top: 1rem;
-  color: rgb(252, 60, 60);
-  font-size: 1.4rem;
+  margin-right: 1.6rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
   opacity: 0;
+  padding: .25rem;
+  color: black;
+  text-align: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  pointer-events: none;
+  max-width: 250px;
 }
 
-label {
+p.danger {
+  background: rgb(255, 170, 170);
+  border-left: red solid 5px;
+}
+
+p.success {
+  background: rgb(163, 252, 163);
+  border-left: rgb(4, 182, 4) solid 5px;
+}
+
+form.main-form label {
   display: block;
   margin: 0.5rem 0 0.5rem 1.5rem;
 }
 
-.label-title {
+form.main-form .label-title {
   margin-top: .5rem;
 }
 
-input {
+form.main-form input {
   background: #212121;
   color: #aaa9a9;
   border: 0;
@@ -73,7 +95,7 @@ button:focus {
   outline: 0;
 }
 
-select {
+form.main-form select {
   cursor: pointer;
   background: #212121;
   color: #aaa9a9;
@@ -84,7 +106,7 @@ select {
   font-size: 1rem;
 }
 
-button[type='submit'] {
+form.main-form button[type='submit'] {
   cursor: pointer;
   margin: 1.5rem 0 0 1.5rem;
   width: 250px;
@@ -96,10 +118,41 @@ button[type='submit'] {
   padding: 0.5rem;
 }
 
-button[type='submit']:hover {
+form.main-form button[type='submit']:hover {
   background: #5a5a5a;
 }
 
+form.main-form button[type='submit']:active {
+  transform: scale(.98);
+}
+
+/* Search and Sort Form */
+form.filter-form {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+form .filter-div {
+  display: flex;
+}
+
+form .filter-div label {
+  margin-left: 1.5rem;
+}
+
+form .filter-div select {
+  background:  #212121;
+  color: #aaa9a9;
+  border: 0;
+  width: 200px;
+  margin: 0 0 0 .5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Title Counter */
 .title-counter {
   position: absolute;
   bottom: 30px;
@@ -128,45 +181,9 @@ li {
 
 .title-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-}
-
-/* .title {
-  border-bottom: 1px dotted #aaa9a9;
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-  width: 1550px;
-} */
-
-/* .title-list {
-  width: 800px;
-} */
-
-table {
-  margin-top: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 1500px;
-}
-
-td {
-  border: none;
-}
-
-td.input-title {
-  max-width: 200px;
-}
-
-td:last-child {
-  text-align: right;
-}
-
-td.buttons {
-  display: flex;
-  justify-content: flex-end;
 }
 
 .title .input-title {
@@ -194,30 +211,9 @@ td.buttons {
   color: green;
 }
 
-/* .table-heading {
-  border-bottom: 1px dotted #aaa9a9;
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-} */
-
-/* table tr {
-  display: flex;
-  align-items: center;
-  width: 100%;
-} */
 
 ul li .title:hover {
   background: #333;
-}
-
-table .title:first-child:hover {
-  background: #3a3a3a;
-}
-
-table .title .buttons {
-  display: flex;
-  align-items: center;
 }
 
 .check-complete {
@@ -230,9 +226,9 @@ table .title .buttons {
 }
 
 .table-heading {
+  font-family: 'Mukta', sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
-  padding-bottom: .5rem;
   color: #aaa9a9;
 }
 
@@ -275,7 +271,7 @@ li.title {
 }
 
 li.title:first-child {
-  margin-top: 2rem;
+  margin-top: .5rem;
 }
 
 li.title:hover {

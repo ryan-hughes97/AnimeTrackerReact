@@ -7,7 +7,9 @@ function App() {
   const [inputText, setInputText] = useState('');
   const [titles, setTitles] = useState([]);
   const [titleType, setTitleType] = useState([]);
+  const [status, setStatus] = useState('all');
   const [check, setCheck] = useState('');
+  const [filteredTitles, setFilteredTitles] = useState([]);
 
   useEffect(() => {
     getLocalTitles();
@@ -20,9 +22,36 @@ function App() {
     saveLocalTitles();
   }, [titles]);
 
+  // useEffect(() => {
+  //   countAnime();
+  // }, [titles]);
+
   useEffect(() => {
-    countAnime();
-  }, [titles]);
+    
+    const filterHandler = () => {
+      let titleCount = document.querySelector('.counter');
+      switch (status) {
+        case 'completed':
+          const completedTitles = (titles.filter((title) => title.completed === true));
+          setFilteredTitles(completedTitles);
+          console.log(completedTitles.length);
+          titleCount.innerText = (completedTitles.length);
+          
+          break;
+        case 'incomplete':
+          const incompleteTitles = (titles.filter((title) => title.completed === false));
+          setFilteredTitles(incompleteTitles);
+          titleCount.innerText = (incompleteTitles.length);
+          break;
+        default:
+          setFilteredTitles(titles);
+          titleCount.innerText = (titles.length);
+          break;
+      }
+    }
+    filterHandler();
+    
+  }, [titles, status])
 
   // window.addEventListener("resize", function(event) {
   //   if(document.body.clientWidth >= "600") {
@@ -36,13 +65,13 @@ function App() {
     titleCount.innerText = (document.querySelectorAll('.title').length - 1);
   }
 
-  
-
   const getLocalTitles = () => {
     if (localStorage.getItem('titles') === null) {
       localStorage.setItem('titles', JSON.stringify([]));
     } else {
       let titleLocal = JSON.parse(localStorage.getItem('titles'));
+      console.log(titleLocal);
+      titleLocal.sort((a,b) => (a.text > b.text) ? 1:-1);
       setTitles(titleLocal);
     }
   };
@@ -57,12 +86,15 @@ function App() {
           setTitles={setTitles}
           titleType={titleType}
           setTitleType={setTitleType}
+          
         />
         <TitleList
           titles={titles}
           setTitles={setTitles}
           check={check}
           setCheck={setCheck}
+          filteredTitles={filteredTitles}
+          setStatus={setStatus}
         />
       </div>
     </div>

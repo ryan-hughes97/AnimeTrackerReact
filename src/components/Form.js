@@ -5,11 +5,11 @@ const Form = ({
   setInputText,
   titles,
   setTitles,
-  titleType,
-  setTitleType,
+  setTitleType
 }) => {
   const type = document.getElementById('type');
   const error = document.getElementById('error-message');
+  const titleInput = document.getElementById('title-input');
   // const displayBtn = document.getElementById('display-button');
   
 
@@ -41,7 +41,13 @@ const Form = ({
   const submitTitleHandler = (e) => {
     e.preventDefault();
     if(inputText === '') {
-      error.style.opacity = '1';
+        error.style.opacity = '1';
+        error.classList.remove('success');
+        error.classList.add('danger');
+        error.innerHTML = 'Please add a title';
+      setTimeout(function() {
+        error.style.opacity = '0';
+      }, 3000);
     } else {
       setTitles([
         ...titles,
@@ -52,13 +58,19 @@ const Form = ({
           id: Math.random() * 1000,
         },
       ]);
-      error.style.opacity = '0'; 
+      error.style.opacity = '1';
+      error.classList.remove('danger');
+      error.classList.add('success'); 
+      error.innerHTML = `'${titleInput.value}' was added`;
+      setTimeout(function() {
+        error.style.opacity = '0';
+      }, 3000);
     }
     setInputText('');
   };
 
   return (
-    <form>
+    <form className="main-form">
       <div className="anime-tracker-div">
         <h1 className='anime-tracker-title'>Re: Track</h1>
         <small>Anime & Manga</small>
@@ -67,7 +79,7 @@ const Form = ({
         <button id="display-button" className="display-button" ><i className="fas fa-chevron-down"></i></button>
       </div> */}
       <div id="input-submit-form" className="input-submit-form show">
-        <p id="error-message" className="error-message">Please add a title</p>
+        
         
           <div>
             <label htmlFor='title' className='label-title'>
@@ -78,6 +90,7 @@ const Form = ({
               onChange={inputTextHandler}
               type='text'
               className='title-input'
+              id='title-input'
             />
           </div>
           <div>
@@ -98,6 +111,8 @@ const Form = ({
             Add to List
           </button>
         </div>
+
+        <p id="error-message" className="error-message"></p>
       </div>
 
       <div className="title-counter">
