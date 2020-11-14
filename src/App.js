@@ -60,17 +60,16 @@ function App() {
   //   }
   // })
 
-  const countAnime = () => {
-    let titleCount = document.querySelector('.counter');
-    titleCount.innerText = (document.querySelectorAll('.title').length - 1);
-  }
+  // const countAnime = () => {
+  //   let titleCount = document.querySelector('.counter');
+  //   titleCount.innerText = (document.querySelectorAll('.title').length - 1);
+  // }
 
   const getLocalTitles = () => {
     if (localStorage.getItem('titles') === null) {
       localStorage.setItem('titles', JSON.stringify([]));
     } else {
       let titleLocal = JSON.parse(localStorage.getItem('titles'));
-      console.log(titleLocal);
       titleLocal.sort((a,b) => (a.text > b.text) ? 1:-1);
       setTitles(titleLocal);
     }
