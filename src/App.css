@@ -11,6 +11,7 @@ body {
   position: relative;
   background: #3a3a3a;
   color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .main-div {
@@ -35,39 +36,11 @@ form.main-form h1 {
   font-family: 'Orbitron', sans-serif;
 }
 
-form.main-form small {
-  display: inline-block;
-  margin-left: 1.6rem;
-  margin-bottom: 2rem;
-}
-
-.display-button {
-  display: none;
-}
-
-p.error-message {
+.anime-tracker-div p {
+  font-family: 'Orbitron', sans-serif;
   margin-left: 1.5rem;
-  margin-right: 1.6rem;
-  margin-top: 1.5rem;
-  font-size: 1rem;
-  opacity: 0;
-  padding: .25rem;
-  color: black;
-  text-align: center;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  pointer-events: none;
-  max-width: 250px;
-}
-
-p.danger {
-  background: rgb(255, 170, 170);
-  border-left: red solid 5px;
-}
-
-p.success {
-  background: rgb(163, 252, 163);
-  border-left: rgb(4, 182, 4) solid 5px;
+  margin-bottom: 2rem;
+  font-size: .8rem;
 }
 
 form.main-form label {
@@ -83,6 +56,7 @@ form.main-form input {
   background: #212121;
   color: #aaa9a9;
   border: 0;
+  max-width: 250px;
   width: 250px;
   margin: 0 0 0 1.5rem;
   padding: 0.5rem;
@@ -100,6 +74,7 @@ form.main-form select {
   background: #212121;
   color: #aaa9a9;
   border: 0;
+  max-width: 250px;
   width: 250px;
   margin: 0 0 0 1.5rem;
   padding: 0.5rem;
@@ -109,6 +84,7 @@ form.main-form select {
 form.main-form button[type='submit'] {
   cursor: pointer;
   margin: 1.5rem 0 0 1.5rem;
+  max-width: 250px;
   width: 250px;
   background: #212121;
   color: #aaa9a9;
@@ -126,7 +102,33 @@ form.main-form button[type='submit']:active {
   transform: scale(.98);
 }
 
-/* Search and Sort Form */
+p.alert-message {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  opacity: 0;
+  padding: .25rem;
+  color: black;
+  text-align: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  pointer-events: none;
+  max-width: 250px;
+  width: 250px;
+}
+
+p.danger {
+  background: rgb(255, 170, 170);
+  border-left: red solid 5px;
+}
+
+p.success {
+  background: rgb(163, 252, 163);
+  border-left: rgb(4, 182, 4) solid 5px;
+}
+
+/* Filter Display Form */
 form.filter-form {
   display: flex;
   justify-content: flex-end;
@@ -135,6 +137,7 @@ form.filter-form {
 
 form .filter-div {
   display: flex;
+  justify-content: space-between;
 }
 
 form .filter-div label {
@@ -173,12 +176,7 @@ form .filter-div select {
   color: #a9a9a9;
 }
 
-li {
-  display: inline-block;
-  list-style-type: none;
-  margin: 1rem 5rem 0 0;
-}
-
+/* Title List */
 .title-container {
   display: flex;
   flex-direction: column;
@@ -190,39 +188,48 @@ li {
   margin-left: .5rem;
 }
 
-.complete-btn,
-.trash-btn {
-  cursor: pointer;
-  color: #aaa9a9;
-  background: #212121;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 0;
-  margin: 0.5rem;
+ul {
+  width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
 }
 
-.trash-btn:hover {
-  background: rgb(223, 61, 61);
-  color: #fff;
+li {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px dotted #aaa9a9;
+  align-items: center;
+  list-style-type: none;
+  margin: 1rem 5rem 0 0;
 }
 
-.complete {
-  color: green;
+li.title {
+  margin: 0;
 }
 
+li.title:first-child {
+  margin-top: .5rem;
+}
+
+li.title:hover {
+  background:#333;
+}
+
+li.title:first-child:hover {
+  background:#3a3a3a;
+}
+
+.anime-manga, .anime, .manga, .type {
+  text-align: center;
+}
+
+.status {
+  text-align: right;
+}
 
 ul li .title:hover {
   background: #333;
-}
-
-.check-complete {
-  color: green;
-}
-
-.completed {
-  background: rgb(44, 148, 44);
-  color: #fff;
 }
 
 .table-heading {
@@ -252,398 +259,345 @@ ul li .title:hover {
 .manga { color: rgb(138, 216, 138); }
 .anime-manga { color: rgb(255, 198, 93); }
 
-ul {
-  width: 1500px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-}
-
-li {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-bottom: 1px dotted #aaa9a9;
-  align-items: center;
-}
-
-li.title {
-  margin: 0;
-}
-
-li.title:first-child {
-  margin-top: .5rem;
-}
-
-li.title:hover {
-  background:#333;
-}
-
-li.title:first-child:hover {
-  background:#3a3a3a;
-}
-
+/* Buttons */
 .buttons {
   display: flex;
   justify-content: flex-end;
+  position: relative;
 }
 
-.anime-manga, .anime, .manga, .type {
-  text-align: center;
+.complete-btn,
+.trash-btn, .fav-btn {
+  cursor: pointer;
+  color: #aaa9a9;
+  background: #212121;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 0;
+  margin: 0.5rem;
 }
 
-.status {
-  text-align: right;
+.fav-btn {
+  font-size: 1rem;
 }
 
-/* @media(max-width: 499px) {
-  .input-submit-form {
-    display: none;
-    transition: all .3s ease-in;
-    position: absolute;
-    top: 0px;
-    left: 0;
-    width: 100%;
-    animation: dropDown .5s ease-in-out forwards;
-    background: #333;
-    z-index: -2;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    border-bottom: 2px #a9a9a9 solid;
-  }
+.buttons span {
+  position: absolute;
+  top: 0;
+  display: none;
+  background: rgba(255, 255, 255, .9);
+  border-radius: 5px;
+  color: black;
+  z-index: 100;
+  width: 60px;
+  font-size: .75rem;
+}
 
-  @keyframes dropDown {
-    0% {
-      transform: translateY(-300px);
-      opacity: 0;
-    }
+.fav-btn:hover span, .complete-btn:hover span, .trash-btn:hover span {
+  display: block;
+}
 
-    50% {
-      opacity: 0;
-    }
+.trash-btn:hover {
+  background: rgb(223, 61, 61);
+  color: #fff;
+}
 
-    100% {
-      transform: translateY(58px);
-      opacity: 1;
-    }
-  }
+.complete {
+  color: green;
+}
 
-  .display-button {
-    display: block;
-    position: absolute;
-    top: 12px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 0;
-    background: #5f5f5f;
-    color: #fff;
-    font-size: 1.2rem;
-  }
+.favorite {
+  background: rgb(250, 96, 122);
+  color: white;
+}
 
+.completed {
+  background: rgb(44, 148, 44);
+  color: #fff;
+}
+
+/* Mobile Components */
+.anime-tracker-mobile-div {
+  display: none;
+}
+
+.anime-tracker-mobile-div h1 {
+  font-family: 'Orbitron', sans-serif;
+  /* color: rgb(253, 130, 85); */
+}
+
+.anime-tracker-mobile-div p {
+  font-family: 'Orbitron', sans-serif;
+  font-size: .8rem;
+  margin-left: .5rem;
+  /* color: rgb(252, 153, 118); */
+}
+
+.display-btn {
+  display: none;
+}
+
+
+/* MEDIA QUERIES */
+@media(max-width: 499px) {
   body {
+    position: relative;
+  }
+
+  form.main-form {
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    transition: all .3s ease-in-out;
+  }
+
+  form.main-form h1, form.main-form p {
+    text-align: center;
+  }
+
+  form.main-form h1 {
+    margin-left: 0;
+  }
+
+  .anime-tracker-form {
+    display: none;
+  }
+
+  .anime-tracker-div p {
     font-size: .8rem;
   }
-  .main-div {
-    display: flex;
-    flex-direction: column;
+
+  form.main-form input, form.main-form select, form.main-form button[type="submit"], p.alert-message {
+    min-width: 350px;
   }
 
-  .input-submit-form {
-    display: none;
+  form.filter-form {
+    margin-top: 4rem;
   }
 
-  .display-button {
+  .anime-tracker-mobile-div {
     display: block;
-    position: absolute;
-    top: 12px;
-    right: 5px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 0;
-    background: #5f5f5f;
-    color: #fff;
-    font-size: 1.2rem;
+    margin-left: 0rem;
+    width: 170px;
   }
 
-  form {
-    height: 70px;
+  .anime-tracker-mobile-div h1, .anime-tracker-mobile-div small {
+    margin-left: .5rem;
   }
 
-  form h1 {
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-    padding-top: 0;
-  }
-  
-  form small {
-    margin-left: 0.6rem;
-    margin-bottom: 0.3rem;
+  .anime-tracker-mobile-div h1 {
+    font-size: 1.5rem;
   }
 
-  small {
-    margin-bottom: 2rem;
+  form.filter-form select {
+    width: 100px;
+    margin-top: .3rem;
   }
 
-  .error-message {
-    margin: 0 0 0 1.5rem;
-  }
-  
-  .label-title {
-    margin-top: 0rem;
-  }
-
-  button[type="submit"] {
-    width: 87%;
-  }
-
-  input, select {
-    width: 87%;
-    margin-right: 1.5rem;
-  }
-
-  button[type="submit"] {
-    margin-bottom: 1rem;
+  ul {
+    width: 350px;
+    /* margin: auto; */
   }
 
   .title-counter {
-    display: none;
+    background: black;
+    position: absolute;
+    bottom: 42px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    opacity: .7;
+  }
+  
+  .title-counter p {
+    margin-left: .25rem;
+    font-size: 1rem;
+    color: #a9a9a9;
+    margin-bottom: 0;
   }
 
-  .title {
-    width: 320px;
+  .counter {
+    font-size: 1rem;
   }
 
-  .trash-btn:active {
-    background: rgb(223, 61, 61);
+  /* Mobile Components */
+  .display-btn {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    background: black;
+    color: #a9a9a9;
+    opacity: .7;
+    transition: all .3s ease-in;
   }
 }
 
 @media(min-width: 500px) and (max-width: 600px) {
-  .input-submit-form {
-    display: none;
-    transition: all .3s ease-in;
-    position: absolute;
-    top: 0px;
-    left: 0;
-    width: 100%;
-    animation: dropDown .5s ease-in-out forwards;
-    background: #333;
-    z-index: -2;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    border-bottom: 2px #a9a9a9 solid;
+  body {
+    position: relative;
   }
 
-  @keyframes dropDown {
-    0% {
-      transform: translateY(-300px);
-      opacity: 0;
-    }
-
-    50% {
-      opacity: 0;
-    }
-
-    100% {
-      transform: translateY(70px);
-      opacity: 1;
-    }
-  }
-
-  .display-button {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 0;
-    background: #5f5f5f;
-    color: #fff;
-    font-size: 1.2rem;
-  }
-
-  .display-button:hover {
-    cursor: pointer;
-  }
-
-  .title {
-    width: 400px;
-  }
-
-  .main-div {
+  form.main-form {
+    min-width: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    transition: all .3s ease-out;
   }
 
-  form {
-    height: 90px;
+  form.main-form h1, form.main-form p {
+    text-align: center;
   }
 
-  form h1 {
-    margin-top: 0.5rem;
-    padding-top: 0;
-  }
-  
-  form small {
-    margin-left: 1.5rem;
-    margin-bottom: .3rem;
+  form.main-form h1 {
+    margin-left: 0;
   }
 
-  .error-message {
-    margin: 0;
-  }
-  
-  .label-title {
-    margin-top: 0rem;
+  .anime-tracker-form {
+    display: none;
   }
 
-  button[type="submit"] {
-    width: 90%;
+  .anime-tracker-div p {
+    font-size: .8rem;
   }
 
-  label {
-    margin: 0 0 0 1.5rem;
-    padding: 0.5rem 0;
+  form.main-form input, form.main-form select, form.main-form button[type="submit"], p.alert-message {
+    min-width: 400px;
   }
 
-  input, select {
-    width: 90%;
-    margin-right: 1.5rem;
+  form.filter-form {
+    margin-top: 4rem;
+    margin-right: .5rem;
+    display: block;
   }
 
-  button[type="submit"] {
-    margin-bottom: 1rem;
+  .anime-tracker-mobile-div {
+    display: block;
+  }
+
+  .anime-tracker-mobile-div h1, .anime-tracker-mobile-div small {
+    margin-left: .5rem;
+  }
+
+  form.filter-form select {
+    width: 180px;
+    margin-top: .3rem;
+  }
+
+  ul {
+    width: 470px;
+    margin: .5rem;
   }
 
   .title-counter {
-    display: none;
+    background: black;
+    position: absolute;
+    bottom: 42px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    opacity: .7;
+  }
+  
+  .title-counter p {
+    margin-left: .25rem;
+    font-size: 1rem;
+    color: #a9a9a9;
+    margin-bottom: 0;
+  }
+
+  .counter {
+    font-size: 1rem;
+  }
+
+  /* Mobile Components */
+  .display-btn {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    background: black;
+    color: #a9a9a9;
+    opacity: .7;
+    transition: all .3s ease-in;
   }
 }
 
 @media(min-width: 601px) and (max-width: 700px) {
-  .main-div {
-    display: flex;
-    flex-direction: column;
+  form.main-form {
+    min-width: 200px;
+    width: 200px;
   }
 
-  form {
-    height: auto;
+  form.main-form label {
+    margin-left: .75rem;
   }
 
-  form h1 {
-    margin-top: 0.5rem;
-    padding-top: 0;
-  }
-  
-  form small {
+  form.main-form h1, form.main-form small, form.main-form input, form.main-form select, form.main-form button[type="submit"] {
     margin-left: .5rem;
-    margin-bottom: .3rem;
   }
 
-  .anime-tracker-div {
-    display: flex;
-    align-items: flex-end;
+  p.error-message {
+    margin-left: .5rem;
+    margin-right: .5rem;
   }
 
-  .error-message {
-    margin: 0;
-  }
-  
-  .label-title {
-    margin-top: 0rem;
+  form.main-form input, form.main-form select, form.main-form button[type="submit"], p.error-message {
+    width: 185px;
   }
 
-  button[type="submit"] {
-    width: 90%;
-  }
-
-  label {
-    margin: 0 0 0 1.5rem;
-    padding: 0.5rem 0;
-  }
-
-  input, select {
-    width: 90%;
-    margin-right: 1.5rem;
-  }
-
-  button[type="submit"] {
-    margin-bottom: 1rem;
-  }
-
-  .title-counter {
-    display: none;
-  }
-
-  .label-div-mobile {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .title {
-    width: 500px;
+  ul {
+    width: 350px;
+    margin: .5rem;
   }
 }
 
 @media(min-width: 701px) and (max-width: 800px) {
-  .title {
-    max-width: 400px;
+  form.main-form {
+    min-width: 250px;
+    width: 250px;
   }
 
-  form {
-    min-width: 230px;
+  form.main-form h1, form.main-form small, form.main-form input, form.main-form select, form.main-form button[type="submit"] {
+    margin-left: 1rem;
   }
 
-  input, select, label, button[type="submit"] {
-    margin-left: .5rem;
-    margin-right: .5rem;
+  p.error-message {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
-}
 
-@media(min-width: 801px) and (max-width: 1000px) {
-  .title {
-    width: 500px;
+  form.main-form input, form.main-form select, form.main-form button[type="submit"], p.error-message {
+    width: 220px;
   }
-}
 
-@media(min-width: 1001px) and (max-width: 1200px) {
-  .title {
-    width: 700px;
+  ul {
+    width: 430px;
+    margin: .5rem;
   }
 }
 
-@media(min-width: 1201px) and (max-width: 1400px) {
-  .title {
+@media(min-width: 1001px) and (max-width: 1300px) {
+  ul {
     width: 900px;
   }
 }
-
-@media(min-width: 1401px) and (max-width: 1600px) {
-  .title {
-    width: 1100px;
-  }
-}
-
-@media(min-width: 1601px) and (max-width: 1800px) {
-  .title {
-    width: 1300px;
-  }
-}
-
-@media(min-width: 1801px){
-  .title {
-    width: 1500px;
-  }
-}
-
-/* landscape view */
-/* @media(max-height: 465px) {
-  .title-counter {
-    display: none;
-  }
-} */ 

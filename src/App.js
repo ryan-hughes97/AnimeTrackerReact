@@ -8,7 +8,6 @@ function App() {
   const [titles, setTitles] = useState([]);
   const [titleType, setTitleType] = useState([]);
   const [status, setStatus] = useState('all');
-  const [check, setCheck] = useState('');
   const [filteredTitles, setFilteredTitles] = useState([]);
 
   useEffect(() => {
@@ -22,26 +21,39 @@ function App() {
     saveLocalTitles();
   }, [titles]);
 
-  // useEffect(() => {
-  //   countAnime();
-  // }, [titles]);
-
   useEffect(() => {
-    
     const filterHandler = () => {
       let titleCount = document.querySelector('.counter');
       switch (status) {
+        case 'favorite':
+          const favoriteTitles = (titles.filter((title) => title.favorite === true));
+          setFilteredTitles(favoriteTitles);
+          titleCount.innerText = (favoriteTitles.length);
+          break;
         case 'completed':
           const completedTitles = (titles.filter((title) => title.completed === true));
           setFilteredTitles(completedTitles);
-          console.log(completedTitles.length);
           titleCount.innerText = (completedTitles.length);
-          
           break;
         case 'incomplete':
           const incompleteTitles = (titles.filter((title) => title.completed === false));
           setFilteredTitles(incompleteTitles);
           titleCount.innerText = (incompleteTitles.length);
+          break;
+        case 'anime':
+          const animeTitles = (titles.filter((title) => title.type === 'Anime'));
+          setFilteredTitles(animeTitles);
+          titleCount.innerText = (animeTitles.length);
+          break;
+        case 'manga':
+          const mangaTitles = (titles.filter((title) => title.type === 'Manga'));
+          setFilteredTitles(mangaTitles);
+          titleCount.innerText = (mangaTitles.length);
+          break;
+        case 'anime-manga':
+          const animeMangaTitles = (titles.filter((title) => title.type === 'Anime & Manga'));
+          setFilteredTitles(animeMangaTitles);
+          titleCount.innerText = (animeMangaTitles.length);
           break;
         default:
           setFilteredTitles(titles);
@@ -50,7 +62,6 @@ function App() {
       }
     }
     filterHandler();
-    
   }, [titles, status])
 
   // window.addEventListener("resize", function(event) {
@@ -85,13 +96,10 @@ function App() {
           setTitles={setTitles}
           titleType={titleType}
           setTitleType={setTitleType}
-          
         />
         <TitleList
           titles={titles}
           setTitles={setTitles}
-          check={check}
-          setCheck={setCheck}
           filteredTitles={filteredTitles}
           setStatus={setStatus}
         />
