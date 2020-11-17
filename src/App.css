@@ -366,6 +366,7 @@ ul li .title:hover {
 
   .anime-tracker-div p {
     font-size: .8rem;
+    margin-left: 0;
   }
 
   form.main-form input, form.main-form select, form.main-form button[type="submit"], p.alert-message {
@@ -398,6 +399,10 @@ ul li .title:hover {
   ul {
     width: 350px;
     /* margin: auto; */
+  }
+
+  .type {
+    margin-left: -2rem;
   }
 
   .title-counter {
@@ -445,6 +450,10 @@ ul li .title:hover {
 
 @media(min-width: 500px) and (max-width: 600px) {
   body {
+    position: relative;
+  }
+
+  .wrapper {
     position: relative;
   }
 
@@ -596,7 +605,25 @@ ul li .title:hover {
   }
 }
 
-@media(min-width: 1001px) and (max-width: 1300px) {
+@media(min-width: 801px) and (max-width: 900px) {
+  ul {
+    width: 480px;
+  }
+}
+
+@media(min-width: 901px) and (max-width: 1000px) {
+  ul {
+    width: 580px;
+  }
+}
+
+@media(min-width: 1001px) and (max-width: 1024px) {
+  ul {
+    width: 700px;
+  }
+}
+
+@media(min-width: 1025px) and (max-width: 1300px) {
   ul {
     width: 900px;
   }

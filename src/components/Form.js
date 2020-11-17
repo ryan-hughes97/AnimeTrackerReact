@@ -16,16 +16,23 @@ const Form = ({
     const animeTrackForm = document.getElementById('anime-tracker-form');
     const mainForm = document.getElementById('main-form');
     const displayBtn = document.getElementById('display-btn');
+    const bodyTag = document.body;
+    const htmlTag = document.querySelector('html');
     animeTrackForm.classList.toggle('display');
 
     if(animeTrackForm.classList.contains('display')) {
       animeTrackForm.style.display = 'block';
       mainForm.style.minWidth = '100vw';
+      // mainForm.style.position = 'fixed';
       displayBtn.style.transform = 'rotate(135deg)';
+      bodyTag.style.overflow = 'hidden';
+      htmlTag.style.overflow = 'hidden';
     } else {
       animeTrackForm.style.display = 'none';
       mainForm.style.minWidth = '0px';
       displayBtn.style.transform = 'rotate(0deg)';
+      bodyTag.style.overflow = 'visible';
+      htmlTag.style.overflow = 'visible';
     }
   }
 

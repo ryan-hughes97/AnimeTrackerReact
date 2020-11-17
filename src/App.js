@@ -89,20 +89,20 @@ function App() {
   return (
     <div className='App'>
       <div className='main-div'>
-        <Form
-          inputText={inputText}
-          setInputText={setInputText}
-          titles={titles}
-          setTitles={setTitles}
-          titleType={titleType}
-          setTitleType={setTitleType}
-        />
-        <TitleList
-          titles={titles}
-          setTitles={setTitles}
-          filteredTitles={filteredTitles}
-          setStatus={setStatus}
-        />
+          <Form
+            inputText={inputText}
+            setInputText={setInputText}
+            titles={titles}
+            setTitles={setTitles}
+            titleType={titleType}
+            setTitleType={setTitleType}
+          />
+          <TitleList
+            titles={titles}
+            setTitles={setTitles}
+            filteredTitles={filteredTitles}
+            setStatus={setStatus}
+          />
       </div>
     </div>
   );
