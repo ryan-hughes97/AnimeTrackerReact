@@ -79,7 +79,7 @@ const Form = ({
   return (
     <form className="main-form" id="main-form">
         {/* Display Button on Mobile */}
-        <button id="display-btn" className="display-btn" onClick={displayForm}><i className="fas fa-plus"></i></button>
+        <button id="display-btn" className="display-btn" type="button" onClick={displayForm}><i className="fas fa-plus"></i></button>
 
         {/* Form Component for Title Input */}
         <div className="anime-tracker-form" id="anime-tracker-form">
